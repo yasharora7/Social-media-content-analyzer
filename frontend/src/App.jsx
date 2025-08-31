@@ -6,6 +6,8 @@ import "./App.css";
 export default function App() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleUpload = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
@@ -14,7 +16,7 @@ export default function App() {
     setResult(null);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/upload`, {
+      const response = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         body: formData,
       });
