@@ -19,16 +19,16 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-app.use('/api/upload', upload.single("file"),uploadRouter);
+app.use('/api', upload.single("file"),uploadRouter);
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
+// });
 
 // Start server
 app.listen(PORT, 
-  () => console.log(`🚀 Server running on http://localhost:${PORT}`)
+  () => console.log(`🚀 Server running on ${PORT}`)
 );
