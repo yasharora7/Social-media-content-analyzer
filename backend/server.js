@@ -2,7 +2,6 @@ import express from "express";
 import multer from "multer";
 import cors from "cors";
 import dotenv from "dotenv";
-import path from "path";
 import uploadRouter from "./routers/upload.router.js"
 
 dotenv.config();
@@ -25,13 +24,6 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
-import fs from "fs";
-const uploadPath = path.join(__dirname, "uploads");
-
-if (!fs.existsSync(uploadPath)) {
-  fs.mkdirSync(uploadPath);
-}
 
 
 // Multer setup
